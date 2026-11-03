@@ -1,8 +1,18 @@
-# HALO Release
+# LingBot ALOHA Policy
 
 A Mobile ALOHA adaptation of [OpenPI](https://github.com/Physical-Intelligence/openpi), with RTC prefix conditioning for the JAX π₀.₅ model and training on multiple LeRobot datasets.
 
 This release contains source code only. Datasets, pretrained weights, and trained checkpoints must be supplied separately. It registers one example, `pi05_mobile_aloha_rtc`, in [config.py](src/openpi/training/config.py). Both the standard and RTC configuration factories remain available for customization.
+
+## Video data preparation
+
+The [data pipeline](data/README.md) removes hands from egocentric videos using
+CaRe-Ego, SAM 2.1, and DiffuEraser with a ProPainter prior. It includes recursive
+video processing, a lower-memory ProPainter profile, and quality reports.
+Follow the [pretrained weight guide](data/weights/README.md) before processing.
+Use a separate environment for data preparation and policy training.
+The pipeline produces processed videos; it does not convert them into a
+LeRobot dataset or modify action and state metadata.
 
 ## Setup
 

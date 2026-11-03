@@ -1,0 +1,66 @@
+# DiffuEraser with one resident model process per selected GPU.
+extends: base.yaml
+profile: server
+processing:
+  target_height: 480
+  paste_back_to_source: false
+runtime:
+  cpu_threads: 4
+  preprocess_workers: 4
+  mask_workers: 4
+  composite_workers: 4
+  worker_start_stagger_seconds: 0
+  model_service:
+    required: true
+    lanes_per_gpu: 1
+    socket_dir: ${socket_root}/server
+    residency: resident
+    startup_timeout_seconds: 900
+    worker_start_stagger_seconds: 0
+models:
+  detector:
+    batch_size: 16
+  segmenter:
+    chunk_frames: 300
+    chunk_overlap: 30
+    offload_video_to_cpu: false
+    offload_state_to_cpu: false
+  propainter:
+    chunk_frames: 720
+    chunk_overlap: 40
+    subvideo_length: 160
+  inpainter:
+    backend: diffueraser
+    repo: ${project_root}/vendor/diffueraser
+    base_model_path: ${asset_root}/diffueraser/stable-diffusion-v1-5
+    vae_path: ${asset_root}/diffueraser/sd-vae-ft-mse
+    diffueraser_path: ${asset_root}/diffueraser/diffuEraser
+    pcm_weights_path: ${asset_root}/diffueraser/PCM_Weights
+    checkpoint_variant: 2-Step
+    pcm_mode: sd15
+    disable_xformers: true
+    attention_backend: sdpa
+    chunk_frames: 66
+    chunk_overlap: 11
+    min_chunk_frames: 22
+    dynamic_mask_ranges: true
+    mask_context_frames: 11
+    max_img_size: 768
+    nframes: 22
+    window_batch_size: 1
+    vae_decode_batch_size: 8
+    skip_redundant_pre_inference_decode: true
+    mask_dilation_iter: 1
+    blended: true
+    retain_intermediates: false
+    output_storage: hdf5
+    prior:
+      repo: ${project_root}/third_party/ProPainter
+      weights: ${asset_root}/propainter
+      subvideo_length: 80
+      neighbor_length: 10
+      ref_stride: 10
+      raft_iter: 20
+      fp16: true
+output:
+  crf: 1

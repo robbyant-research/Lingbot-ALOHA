@@ -1,0 +1,35 @@
+# Use only when every visible hand may be removed.
+extends: server.yaml
+profile: grounding_dino
+runtime:
+  model_service:
+    socket_dir: ${socket_root}/grounding_dino
+models:
+  detector:
+    backend: grounding_dino_sam2
+    acknowledge_non_ego_hand_removal: true
+    model_dir: ${asset_root}/grounding-dino-tiny
+    prompts:
+    - human hand
+    - gloved hand
+    - forearm
+    box_threshold: 0.22
+    text_threshold: 0.18
+    nms_iou_threshold: 0.5
+    max_detections: 6
+    box_expansion_ratio: 0.1
+    min_box_expansion_px: 4
+    sam_score_threshold: 0.0
+    max_sam_mask_area_ratio: 0.25
+    batch_size: 8
+    sam2_repo: ${project_root}/third_party/sam2
+    sam2_config: configs/sam2.1/sam2.1_hiera_l.yaml
+    sam2_checkpoint: ${asset_root}/sam2/sam2.1_hiera_large.pt
+  segmenter:
+    keyframe_interval: 5
+    merge_hands_for_tracking: true
+mask:
+  max_area_ratio: 0.45
+  dilation_ratio: 0.014
+  dilation_min_px: 6
+  dilation_max_px: 24

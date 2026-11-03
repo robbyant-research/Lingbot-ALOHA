@@ -1,0 +1,41 @@
+# ProPainter with staged model residency and 360p processing.
+extends: base.yaml
+profile: low_memory
+processing:
+  target_height: 360
+  paste_back_to_source: false
+runtime:
+  cpu_threads: 2
+  preprocess_workers: 1
+  mask_workers: 1
+  composite_workers: 1
+  worker_start_stagger_seconds: 0
+  model_service:
+    required: true
+    lanes_per_gpu: 1
+    socket_dir: ${socket_root}/low_memory
+    residency: staged
+    startup_timeout_seconds: 900
+    worker_start_stagger_seconds: 0
+models:
+  detector:
+    repo: ${project_root}/third_party/CaRe-Ego
+    config: ${project_root}/third_party/CaRe-Ego/configs/CaRego.py
+    checkpoint: ${asset_root}/care_ego/best_mIoU_ckpt.pth
+    batch_size: 2
+  segmenter:
+    repo: ${project_root}/third_party/sam2
+    checkpoint: ${asset_root}/sam2/sam2.1_hiera_large.pt
+    chunk_frames: 120
+    chunk_overlap: 20
+    offload_video_to_cpu: true
+    offload_state_to_cpu: true
+  propainter:
+    repo: ${project_root}/third_party/ProPainter
+    weights: ${asset_root}/propainter
+    chunk_frames: 60
+    chunk_overlap: 10
+    subvideo_length: 30
+    neighbor_length: 6
+    raft_iter: 12
+    release_cache_after_request: true

@@ -1,0 +1,75 @@
+# Shared paths, masks, and model settings.
+schema_version: 1
+project_root: ${project_root}
+run_root: ${project_root}/runs
+work_root: ${work_root}
+log_root: ${project_root}/logs
+asset_root: ${asset_root}
+runtime:
+  require_tmpfs: true
+  preprocess_workers: 4
+  composite_workers: 4
+  worker_start_stagger_seconds: 0
+  model_service:
+    required: true
+    lanes_per_gpu: 1
+    socket_dir: ${socket_root}/propainter
+    residency: resident
+    startup_timeout_seconds: 900
+    worker_start_stagger_seconds: 0
+processing:
+  target_height: 480
+  paste_back_to_source: false
+datasets: {}
+models:
+  detector:
+    repo: ${project_root}/third_party/CaRe-Ego
+    config: ${project_root}/third_party/CaRe-Ego/configs/CaRego.py
+    checkpoint: ${asset_root}/care_ego/best_mIoU_ckpt.pth
+    input_size:
+    - 448
+    - 448
+    confidence_threshold: 0.55
+  segmenter:
+    repo: ${project_root}/third_party/sam2
+    config: configs/sam2.1/sam2.1_hiera_l.yaml
+    checkpoint: ${asset_root}/sam2/sam2.1_hiera_large.pt
+    keyframe_interval: 10
+    chunk_frames: 300
+    chunk_overlap: 30
+    mask_threshold: 0.0
+    min_prompt_area_ratio: 0.002
+    offload_video_to_cpu: true
+    offload_state_to_cpu: false
+  propainter:
+    repo: ${project_root}/third_party/ProPainter
+    weights: ${asset_root}/propainter
+    chunk_frames: 240
+    chunk_overlap: 20
+    subvideo_length: 80
+    neighbor_length: 10
+    ref_stride: 10
+    raft_iter: 20
+    fp16: true
+mask:
+  min_component_area_ratio: 0.0002
+  max_area_ratio: 0.35
+  dilation_ratio: 0.0125
+  dilation_min_px: 6
+  dilation_max_px: 20
+  feather_ratio: 0.006
+  feather_min_px: 3
+  feather_max_px: 10
+  hard_alpha_threshold: 0.02
+qc:
+  max_area_jump_ratio: 0.12
+  min_temporal_iou: 0.3
+  temporal_iou_percentile: 5.0
+  min_encoded_outside_psnr: 35.0
+  min_encoded_outside_ssim: 0.95
+output:
+  video_codec: libx264
+  crf: 18
+  mask_crf: 12
+  preset: medium
+  preview_height: 480

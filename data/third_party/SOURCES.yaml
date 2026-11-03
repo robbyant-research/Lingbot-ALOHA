@@ -1,0 +1,27 @@
+schema_version: 1
+sources:
+- name: CaRe-Ego
+  url: https://github.com/yuggiehk/CaRe-Ego.git
+  revision: 80c7402795bcbecdc16344ae025e34d0bb290fdc
+  license: Apache-2.0
+  path: third_party/CaRe-Ego
+- name: ProPainter
+  url: https://github.com/sczhou/ProPainter.git
+  revision: e870e79321c31b733e2031af5aa2fb1fe3ac7eec
+  license: NTU-S-Lab-1.0-non-commercial
+  path: third_party/ProPainter
+- name: sam2
+  url: https://github.com/facebookresearch/sam2.git
+  revision: 2b90b9f5ceec907a1c18123530e92e794ad901a4
+  license: Apache-2.0
+  path: third_party/sam2
+- name: DiffuEraser
+  url: https://github.com/lixiaowen-xw/DiffuEraser.git
+  revision: 8e6f279ac7531e27ad1849c6f8dab5372a8597e7
+  license: Apache-2.0
+  path: vendor/diffueraser
+  modified: true
+notes:
+- Only the source files needed for inference are included.
+- DiffuEraser includes temporal-window batching, VAE batching, and HDF5 frame access.
+- See THIRD_PARTY_NOTICES.md for attribution and local modifications.

@@ -1,0 +1,10 @@
+# CPU checks do not load pretrained models.
+pytest==8.4.1
+PyYAML==6.0.2
+numpy==1.26.4
+pillow==11.3.0
+opencv-python-headless==4.11.0.86
+av==15.0.0
+scipy==1.13.1
+scikit-image==0.25.2
+h5py==3.14.0
