@@ -1,0 +1,474 @@
+{
+ "source": "AgileX Tracer 2.0, agilexrobotics/ugv_gazebo_sim tracer/tracer2_description (package.xml license: BSD); colours added",
+ "units": "metres, URDF frame (x forward, y left, z up); base_link is 0.153 m above the ground",
+ "ground_offset": 0.153,
+ "links": {
+  "base_link": {
+   "visuals": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  "left_Link": {
+   "visuals": [
+    6,
+    7
+   ],
+   "parent": "base_link",
+   "joint": "left_joint",
+   "type": "continuous",
+   "xyz": [
+    -0.018818,
+    0.2537,
+    -0.0905
+   ],
+   "rpy": [
+    1.5708,
+    0.0,
+    0.0
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "right_link": {
+   "visuals": [
+    8,
+    9
+   ],
+   "parent": "base_link",
+   "joint": "right_joint",
+   "type": "continuous",
+   "xyz": [
+    -0.018818,
+    -0.2537,
+    -0.0905
+   ],
+   "rpy": [
+    -1.5708,
+    0.0,
+    0.0
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "left_front_link": {
+   "visuals": [
+    10
+   ],
+   "parent": "base_link",
+   "joint": "left_front_joint",
+   "type": "fixed",
+   "xyz": [
+    0.23918,
+    0.1977,
+    -0.058
+   ],
+   "rpy": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "right_front_link": {
+   "visuals": [
+    11
+   ],
+   "parent": "base_link",
+   "joint": "right_front_joint",
+   "type": "fixed",
+   "xyz": [
+    0.23918,
+    -0.1977,
+    -0.058
+   ],
+   "rpy": [
+    3.1416,
+    0.0,
+    0.0
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "left_rear_link": {
+   "visuals": [
+    10
+   ],
+   "parent": "base_link",
+   "joint": "left_rear_joint",
+   "type": "fixed",
+   "xyz": [
+    -0.27077,
+    0.18305,
+    -0.058
+   ],
+   "rpy": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "right_rear_link": {
+   "visuals": [
+    11
+   ],
+   "parent": "base_link",
+   "joint": "right_rea_joint",
+   "type": "fixed",
+   "xyz": [
+    -0.27082,
+    -0.183,
+    -0.058
+   ],
+   "rpy": [
+    3.1416,
+    0.0,
+    0.0
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  }
+ },
+ "geometries": [
+  {
+   "mesh": "base_link.STL:shell",
+   "rgba": [
+    0.9,
+    0.91,
+    0.92,
+    1
+   ],
+   "count": 5628,
+   "tris": 5042,
+   "min": [
+    -0.361088,
+    -0.28925,
+    -0.125
+   ],
+   "ext": [
+    0.70075,
+    0.57925,
+    0.125
+   ],
+   "pos": 0,
+   "nrm": 33768,
+   "idx": 50652,
+   "itype": "u16",
+   "emissive": false
+  },
+  {
+   "mesh": "base_link.STL:deck",
+   "rgba": [
+    0.14,
+    0.15,
+    0.16,
+    1
+   ],
+   "count": 2171,
+   "tris": 2060,
+   "min": [
+    -0.361692,
+    -0.29,
+    -0.1235
+   ],
+   "ext": [
+    0.701748,
+    0.58,
+    0.1235
+   ],
+   "pos": 80904,
+   "nrm": 93932,
+   "idx": 100448,
+   "itype": "u16",
+   "emissive": false
+  },
+  {
+   "mesh": "base_link.STL:trim",
+   "rgba": [
+    0.08,
+    0.085,
+    0.09,
+    1
+   ],
+   "count": 2913,
+   "tris": 2078,
+   "min": [
+    -0.361442,
+    -0.304959,
+    -0.122
+   ],
+   "ext": [
+    0.702213,
+    0.609916,
+    0.137356
+   ],
+   "pos": 112808,
+   "nrm": 130288,
+   "idx": 139028,
+   "itype": "u16",
+   "emissive": false
+  },
+  {
+   "mesh": "base_link.STL:rail",
+   "rgba": [
+    0.74,
+    0.76,
+    0.78,
+    1
+   ],
+   "count": 302,
+   "tris": 235,
+   "min": [
+    -0.275818,
+    -0.134639,
+    0.001125
+   ],
+   "ext": [
+    0.530441,
+    0.269538,
+    0.016612
+   ],
+   "pos": 151496,
+   "nrm": 153308,
+   "idx": 154216,
+   "itype": "u16",
+   "emissive": false
+  },
+  {
+   "mesh": "base_link.STL:light",
+   "rgba": [
+    0.86,
+    0.95,
+    1.0,
+    1
+   ],
+   "count": 238,
+   "tris": 182,
+   "min": [
+    0.293855,
+    -0.0955,
+    -0.0459
+   ],
+   "ext": [
+    0.015125,
+    0.191,
+    0.0149
+   ],
+   "pos": 155628,
+   "nrm": 157056,
+   "idx": 157772,
+   "itype": "u16",
+   "emissive": true
+  },
+  {
+   "mesh": "base_link.STL:rear_light",
+   "rgba": [
+    0.45,
+    0.06,
+    0.05,
+    1
+   ],
+   "count": 193,
+   "tris": 133,
+   "min": [
+    -0.362192,
+    -0.0645,
+    -0.1055
+   ],
+   "ext": [
+    0.01,
+    0.12905,
+    0.059
+   ],
+   "pos": 158864,
+   "nrm": 160024,
+   "idx": 160604,
+   "itype": "u16",
+   "emissive": false
+  },
+  {
+   "mesh": "left_Link.STL:tire",
+   "rgba": [
+    0.11,
+    0.115,
+    0.12,
+    1
+   ],
+   "count": 2348,
+   "tris": 2077,
+   "min": [
+    -0.062029,
+    -0.062141,
+    -0.024
+   ],
+   "ext": [
+    0.124155,
+    0.124287,
+    0.038
+   ],
+   "pos": 161404,
+   "nrm": 175492,
+   "idx": 182536,
+   "itype": "u16",
+   "emissive": false
+  },
+  {
+   "mesh": "left_Link.STL:hub",
+   "rgba": [
+    0.55,
+    0.58,
+    0.61,
+    1
+   ],
+   "count": 1036,
+   "tris": 1578,
+   "min": [
+    -0.049218,
+    -0.049196,
+    -0.024
+   ],
+   "ext": [
+    0.098437,
+    0.098392,
+    0.038
+   ],
+   "pos": 195000,
+   "nrm": 201216,
+   "idx": 204324,
+   "itype": "u16",
+   "emissive": false
+  },
+  {
+   "mesh": "right_link.STL:tire",
+   "rgba": [
+    0.11,
+    0.115,
+    0.12,
+    1
+   ],
+   "count": 2386,
+   "tris": 2111,
+   "min": [
+    -0.062012,
+    -0.062169,
+    -0.024
+   ],
+   "ext": [
+    0.124124,
+    0.124209,
+    0.038
+   ],
+   "pos": 213792,
+   "nrm": 228108,
+   "idx": 235268,
+   "itype": "u16",
+   "emissive": false
+  },
+  {
+   "mesh": "right_link.STL:hub",
+   "rgba": [
+    0.55,
+    0.58,
+    0.61,
+    1
+   ],
+   "count": 1036,
+   "tris": 1578,
+   "min": [
+    -0.049241,
+    -0.049151,
+    -0.024
+   ],
+   "ext": [
+    0.098482,
+    0.098302,
+    0.038
+   ],
+   "pos": 247936,
+   "nrm": 254152,
+   "idx": 257260,
+   "itype": "u16",
+   "emissive": false
+  },
+  {
+   "mesh": "left_front_link.STL",
+   "rgba": [
+    0.22,
+    0.23,
+    0.25,
+    1
+   ],
+   "count": 3387,
+   "tris": 3290,
+   "min": [
+    -0.057421,
+    -0.039,
+    -0.094899
+   ],
+   "ext": [
+    0.096377,
+    0.07855,
+    0.096399
+   ],
+   "pos": 266728,
+   "nrm": 287052,
+   "idx": 297216,
+   "itype": "u16",
+   "emissive": false
+  },
+  {
+   "mesh": "right_front_link.STL",
+   "rgba": [
+    0.22,
+    0.23,
+    0.25,
+    1
+   ],
+   "count": 3317,
+   "tris": 3179,
+   "min": [
+    -0.057421,
+    -0.03955,
+    -0.000267
+   ],
+   "ext": [
+    0.096399,
+    0.078506,
+    0.095166
+   ],
+   "pos": 316956,
+   "nrm": 336860,
+   "idx": 346812,
+   "itype": "u16",
+   "emissive": false
+  }
+ ],
+ "bin": "tracer2.bin",
+ "bytes": 365888,
+ "triangles": 23543
+}

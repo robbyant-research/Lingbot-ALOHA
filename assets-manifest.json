@@ -1,0 +1,161 @@
+{
+  "master": "D:\\files\\ML\\2026Summer\\final_v2_x264.mp4",
+  "paper": "D:\\files\\download_tmp\\ICRA2026_HALO (2).pdf",
+  "clip_resolution": "1920x1080",
+  "full_video": "2560x1440, original H.264 + AAC, stream copy with faststart",
+  "timing_note": "Cut points verified visually against the master; original preview timing table started most clips about 1.9 seconds too early.",
+  "clips": [
+    {
+      "name": "teaser",
+      "start": 3,
+      "end": 15.291666666666666,
+      "poster": 6
+    },
+    {
+      "name": "collect_operator",
+      "start": 15.291666666666666,
+      "end": 23.958333,
+      "poster": 18.875
+    },
+    {
+      "name": "collect_headcam",
+      "start": 27,
+      "end": 32.5,
+      "poster": 27.875
+    },
+    {
+      "name": "design_cad",
+      "start": 33.833333,
+      "end": 41.375,
+      "poster": 35.375
+    },
+    {
+      "name": "lift_box",
+      "start": 42.708333,
+      "end": 49.833333333333336,
+      "poster": 44.375
+    },
+    {
+      "name": "push_chair",
+      "start": 49.833333333333336,
+      "end": 62.208333333333336,
+      "poster": 53.875
+    },
+    {
+      "name": "push_chair_spatial",
+      "start": 62.208333333333336,
+      "end": 74.79166666666667,
+      "poster": 65.875
+    },
+    {
+      "name": "push_chair_env",
+      "start": 74.79166666666667,
+      "end": 84.25,
+      "poster": 77.875
+    },
+    {
+      "name": "zip_tie",
+      "start": 84.25,
+      "end": 101.25,
+      "poster": 89.875
+    },
+    {
+      "name": "lego",
+      "start": 101.25,
+      "end": 126.91666666666667,
+      "poster": 113.875
+    },
+    {
+      "name": "lego_strategy",
+      "start": 126.91666666666667,
+      "end": 146.95833333333334,
+      "poster": 134.875
+    },
+    {
+      "name": "box_conveyor",
+      "start": 146.95833333333334,
+      "end": 186.875,
+      "poster": 169.875
+    },
+    {
+      "name": "efficiency",
+      "start": 186.916667,
+      "end": 219.875,
+      "poster": 201.875
+    }
+  ],
+  "figures": [
+    {
+      "name": "fig1-interface",
+      "source": "D:\\files\\ML\\2026Summer\\comparison.pdf",
+      "page": 1,
+      "crop": null
+    },
+    {
+      "name": "fig3-end-effector",
+      "source": "D:\\files\\download_tmp\\ICRA2026_HALO (2).pdf",
+      "page": 3,
+      "crop": [
+        0.08317929759704251,
+        0.05857142857142857,
+        0.4944547134935305,
+        0.2985714285714286
+      ]
+    },
+    {
+      "name": "fig4-system",
+      "source": "D:\\files\\ML\\2026Summer\\car.pdf",
+      "page": 1,
+      "crop": null
+    },
+    {
+      "name": "fig5-implicit-base",
+      "source": "D:\\files\\ML\\2026Summer\\demo.pdf",
+      "page": 1,
+      "crop": null
+    },
+    {
+      "name": "fig6-visual-processing",
+      "source": "D:\\files\\ML\\2026Summer\\posprocess.pdf",
+      "page": 1,
+      "crop": [
+        0.5050505050505051,
+        0.565,
+        0.9313131313131313,
+        0.7335714285714285
+      ]
+    },
+    {
+      "name": "fig8-tasks",
+      "source": "D:\\files\\ML\\2026Summer\\zip_tie.pdf",
+      "page": 1,
+      "crop": null
+    },
+    {
+      "name": "fig9-long-horizon",
+      "source": "D:\\files\\ML\\2026Summer\\box_2_conveyor.pdf",
+      "page": 1,
+      "crop": null
+    },
+    {
+      "name": "fig10-failure-cases",
+      "source": "D:\\files\\ML\\2026Summer\\mobile.pdf",
+      "page": 1,
+      "crop": null
+    },
+    {
+      "name": "fig11-generalization",
+      "source": "D:\\files\\ML\\2026Summer\\chair2desk.pdf",
+      "page": 1,
+      "crop": null
+    }
+  ],
+  "design": "Original section layout, cameras, scroll animation and arm/base models preserved. Chart colors updated from the user's reference figure. ICR overlay removed at user request; frame braces and fittings corrected from supplied Blender scene with existing outer dimensions retained.",
+  "metadata": "Authors, affiliations, BibTeX placeholders unchanged at user request.",
+  "local_viewer": {
+    "bundle": "halo-viewer.js",
+    "rebuild": "python tools/build_local_viewer.py",
+    "source_animation": "Original animation retained with requested ICR removal and framework correction; halo-models.js, three.js and arm/base model files unchanged",
+    "model_loading": "Embedded original model manifests and base64 binaries; supports file:// without fetch or ES module imports"
+  }
+}
